@@ -1,3 +1,9 @@
+/**
+一、Comparator
+强行对某个对象collection进行整体排序的比较函数，可以将Comparator传递给Collections.sort或Arrays.sort。
+
+接口方法：这里也给出了两种方法，
+*/
 import java.util.*;
 class structSort
 {
@@ -8,7 +14,7 @@ class cmp implements Comparator<structSort>
 {
 	public int compare(structSort o1, structSort o2)
 	{
-		if(o1.x.compareTo(o2.x)==0)
+		if(o1.x.compareTo(o2.x)==0) //这个相当于c/c++中strcmp（o1.x , o2,x）
 		{
 			return o1.y - o2.y;
 		}
@@ -34,8 +40,8 @@ public class Main {
 				a[i].x = cin.next();
 				a[i].y = cin.nextInt();
 			}
-			Arrays.sort(a,0,n,comparator);
-			Arrays.sort(a,0,n,new cmp());
+			Arrays.sort(a,0,n,comparator); //这个直接使用Comparator
+			Arrays.sort(a,0,n,new cmp()); //这个实现Comparator，就就跟c++中的sort函数调用就差不多了
 			for(int i = 0; i< n ;i++)
 			{
 				System.out.println(a[i].x+" "+a[i].y);
